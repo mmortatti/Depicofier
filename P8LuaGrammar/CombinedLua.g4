@@ -1,4 +1,4 @@
-/*
+﻿/*
 BSD License
 
 Copyright (c) 2013, Kazunori Sakamoto
@@ -121,6 +121,7 @@ exp
     : 'nil' | 'false' | 'true'
     | number
     | string
+    | emoji
     | '...'
     | functiondef
     | prefixexp
@@ -243,6 +244,10 @@ number
 
 string
     : NORMALSTRING | CHARSTRING | LONGSTRING
+    ;
+
+emoji
+    : '…' | '░' | '➡️' | '⧗' | '▤' | '⬆️' | '☉' | '🅾️' | '◆' | '█' | '★' | '⬇️' | '✽' | '●' | '♥' | '웃' | '⌂' | '⬅️' | '▥' | '❎' | '🐱' | 'ˇ' | '▒' | '♪' | '😐' | '∧'
     ;
 
 // LEXER

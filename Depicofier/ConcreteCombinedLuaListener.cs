@@ -23,6 +23,11 @@ namespace Depicofier {
             Parent.EnterNumber(context);
         }
 
+        public override void EnterEmoji([NotNull] CombinedLuaParser.EmojiContext context)
+        {
+            Parent.EnterEmoji(context);
+        }
+
         public override void EnterOperatorMulDivMod([NotNull] CombinedLuaParser.OperatorMulDivModContext context) {
             Parent.EnterOperatorMulDivMod(context);
         }

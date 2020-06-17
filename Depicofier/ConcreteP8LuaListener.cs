@@ -18,6 +18,11 @@ namespace Depicofier {
             Parent.EnterOperatorComparison(context);
         }
 
+        public override void EnterEmoji([NotNull] P8LuaParser.EmojiContext context)
+        {
+            Parent.EnterEmoji(context);
+        }
+
         public override void EnterNumber([NotNull] P8LuaParser.NumberContext context) {
             Parent.EnterNumber(context);
         }

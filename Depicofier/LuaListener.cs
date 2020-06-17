@@ -158,6 +158,47 @@ namespace Depicofier {
             }
         }
 
+        private Dictionary<string, double> emojiMap = new Dictionary<string, double>()
+        {
+            {"…"    , -2560.5},
+            {"∧"   , 31455.5},
+            {"░"    , 32125.5},
+            {"➡️"   , 1},
+            {"⧗"   , 6943.5},
+            {"▤"    , 3855.5},
+            {"⬆️"    , 2},
+            {"☉"   , -19008.5},
+            {"🅾️"  , 4},
+            {"◆"   , -20032.5},
+            {"█"    , 0.5},
+            {"★"   , -20128.5},
+            {"⬇️"    , 3},
+            {"✽"   , -18402.5},
+            {"●"    , -1632.5},
+            {"♥"    , 20927.5},
+            {"웃"   , -26208.5},
+            {"⌂"    , -20192.5},
+            {"⬅️"   , 0},
+            {"▥"    , 21845.5},
+            {"❎"  , 5},
+            {"🐱"  , 20767.5},
+            {"ˇ"   , -2624.5},
+            {"▒"   , 23130.5},
+            {"♪"   , -25792.5},
+            {"😐" , -24351.5},
+        };
+        public virtual void EnterEmoji([NotNull] ParserRuleContext context)
+        {
+            if (emojiMap.ContainsKey(context.GetText()))
+            {
+                Replacements.Push(new Replacement(
+                        context.start.StartIndex,
+                        context.stop.StopIndex,
+                        emojiMap[context.GetText()].ToString()
+                    ));
+            }
+        }
+
         public Stack<Replacement> Replacements { get; set; }
         public ILuaListener Listener { get; set; }
     }
